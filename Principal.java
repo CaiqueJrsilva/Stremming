@@ -1,3 +1,6 @@
+import br.com.alura.stremming.calculos.CalculadoraDeTempo;
+import br.com.alura.stremming.calculos.Filtro_recomendacao;
+import br.com.alura.stremming.modelos.Episodio;
 import br.com.alura.stremming.modelos.Filme;
 import br.com.alura.stremming.modelos.Serie;
 
@@ -6,8 +9,8 @@ public class Principal {
         Filme meuFilme = new Filme();
         meuFilme.setNome("Elementos");
         meuFilme.setAnoDeLançamento(2023);
-        meuFilme.setDuracaoEmMinutos(244);
-        System.out.println("Duração do filme  :"+ meuFilme.getDuracaoEmMinutos());
+        meuFilme.setDuracaoEmMinutos(120);
+        meuFilme.setIncluidoNoPlano(true);
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
@@ -24,7 +27,30 @@ public class Principal {
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodio(50);
-        System.out.println("Duração do filme: " + lost.getDuracaoEmMinutos());
+        System.out.println("Duração para maratonar Lost : " + lost.getDuracaoEmMinutos());
+
+        Filme outroFilme = new Filme();
+        meuFilme.setNome("Avatar");
+        meuFilme.setAnoDeLançamento(2023);
+        meuFilme.setDuracaoEmMinutos(180);
+        outroFilme.setIncluidoNoPlano(true);
+
+
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(lost);
+        System.out.println(calculadora.getTempoTotal());
+
+        Filtro_recomendacao filtro = new Filtro_recomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtra(episodio);
 
     }
 }
