@@ -1,0 +1,26 @@
+[
+  {
+    "Nome": "Dogville",
+    "AnoDeLançamento": 2003,
+    "DuracaoEmMinutos": 178,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalAvaliacoes": 0
+  },
+  {
+    "Nome": "Avatar",
+    "AnoDeLançamento": 2009,
+    "DuracaoEmMinutos": 162,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalAvaliacoes": 0
+  },
+  {
+    "Nome": "Alice",
+    "AnoDeLançamento": 1990,
+    "DuracaoEmMinutos": 106,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalAvaliacoes": 0
+  }
+]

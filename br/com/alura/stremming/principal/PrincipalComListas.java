@@ -4,8 +4,7 @@ import br.com.alura.stremming.modelos.Filme;
 import br.com.alura.stremming.modelos.Serie;
 import br.com.alura.stremming.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -39,6 +38,16 @@ public class PrincipalComListas {
                 System.out.println("nada");
             }
         }
+
+        System.out.println("Lista ordenada de titulos de filmes :");
+        Collections.sort(lista);
+        System.out.println(lista);
+
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLançamento));
+        System.out.println(lista);
+
+
+
 
     }
 }

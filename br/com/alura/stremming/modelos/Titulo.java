@@ -1,6 +1,8 @@
 package br.com.alura.stremming.modelos;
 
-public class Titulo {
+import br.com.alura.stremming.excecao.ErroDeConversaoDeAnoException;
+
+public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoDeLançamento;
     private int duracaoEmMinutos;
@@ -12,6 +14,16 @@ public class Titulo {
         this.nome = nome;
         this.anoDeLançamento = anoDeLançamento;
     }
+
+    public Titulo(TituloOmbd tituloOmbd) {
+        this.nome = tituloOmbd.title();
+        if(tituloOmbd.year().length() > 4) {
+            throw new ErroDeConversaoDeAnoException("Não consegui converter o ano , pois ha mais de 4 caracteres");
+        }
+            this.anoDeLançamento = Integer.valueOf(tituloOmbd.year());
+        this.duracaoEmMinutos = Integer.valueOf(tituloOmbd.runtime().substring(0,3));
+    }
+
 
     public String getNome() {
         return nome;
@@ -73,4 +85,18 @@ public class Titulo {
         System.out.println("Nome do filme: " + nome);
         System.out.println("Ano de lançamento: " + anoDeLançamento);
     }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return  this.getNome().compareTo(outroTitulo.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return "nome=" + nome + '\'' +
+                ", anoDeLançamento=" + anoDeLançamento +
+                ", duracaoEmMinutos=" + duracaoEmMinutos ;
+    }
+
+
 }
